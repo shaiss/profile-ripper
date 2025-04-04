@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Ripper</title>
+    <link rel="stylesheet" href="../css/popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Profile Ripper</h1>
+            <p class="subtitle">Transform social profiles into AI followers</p>
+        </header>
+
+        <!-- Action Section -->
+        <section class="actions">
+            <h2>Current Page</h2>
+            <div class="current-page-actions">
+                <button id="scrape-profile" class="btn primary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 6px;">
+                        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 5C13.66 5 15 6.34 15 8C15 9.66 13.66 11 12 11C10.34 11 9 9.66 9 8C9 6.34 10.34 5 12 5ZM12 19.2C9.5 19.2 7.29 17.92 6 15.98C6.03 13.99 10 12.9 12 12.9C13.99 12.9 17.97 13.99 18 15.98C16.71 17.92 14.5 19.2 12 19.2Z" fill="white"/>
+                    </svg>
+                    Extract Profile
+                </button>
+                <!-- Progress Indicator Area -->
+                <div id="progress-indicator" class="progress-indicator" style="display: none;">
+                    <div id="progress-bar" class="progress-bar"></div>
+                    <div id="progress-text" class="progress-text">Starting...</div>
+                </div>
+                <div id="current-page-info" class="page-info">
+                    No profile detected. Open a LinkedIn or Twitter profile page.
+                </div>
+            </div>
+        </section>
+
+        <section class="settings">
+            <h2>Settings</h2>
+            <div class="settings-section">
+                <h3>API Configuration</h3>
+                <div class="api-key-section">
+                    <label for="openai-key">OpenAI API Key</label>
+                    <div class="input-group">
+                        <input type="password" id="openai-key" class="input-field" placeholder="Enter OpenAI API key">
+                        <button id="save-openai-key" class="btn secondary save-key-btn">Save</button>
+                    </div>
+                    
+                    <label for="anthropic-key">Anthropic API Key</label>
+                    <div class="input-group">
+                        <input type="password" id="anthropic-key" class="input-field" placeholder="Enter Anthropic API key (starts with 'sk-ant-')">
+                        <button id="save-anthropic-key" class="btn secondary save-key-btn">Save</button>
+                    </div>
+                    
+                    <p class="api-info">
+                        OpenAI key is used for OpenAI models. Anthropic key (which starts with 'sk-ant-') is used for Claude models. Make sure you enter the full API key including the prefix.
+                    </p>
+                </div>
+                
+                <h3>Model Selection</h3>
+                <div class="model-section">
+                    <label for="model-select">AI Model</label>
+                    <select id="model-select" class="select-input">
+                        <option value="o3-mini-2025-01-31">OpenAI Mini (Default, Faster)</option>
+                        <option value="gpt-4o-2024-11-20">GPT-4 Turbo (Most Detailed)</option>
+                        <option value="claude-3-5-haiku-20241022">Claude 3.5 Haiku (Cost-effective)</option>
+                        <option value="claude-3-7-sonnet-20250219">Claude 3.7 Sonnet (Capable)</option>
+                    </select>
+                    <p class="model-info">
+                        Select your preferred model. OpenAI models require an OpenAI API key. Claude models require an Anthropic API key.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="profiles">
+            <h2>Saved Profiles</h2>
+            <div id="profiles-list" class="profiles-grid">
+                <!-- Profiles will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section class="actions bottom-actions">
+            <button id="export-all" class="btn secondary">Export All Profiles</button>
+            <button id="clear-profiles" class="btn danger">Clear All Profiles</button>
+        </section>
+    </div>
+    <script src="../js/popup.js" type="module"></script>
+</body>
+</html> 

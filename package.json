@@ -1,0 +1,11 @@
+{
+  "name": "profile-ripper",
+  "version": "1.0.0",
+  "description": "Chrome extension to transform social media profiles into AI follower profiles",
+  "scripts": {
+    "generate-icons": "node scripts/generate-icons.js"
+  },
+  "dependencies": {
+    "sharp": "^0.33.2"
+  }
+} 
